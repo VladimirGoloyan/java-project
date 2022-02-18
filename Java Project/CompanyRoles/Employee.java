@@ -1,8 +1,9 @@
 package CompanyRoles;
 abstract class Employee {
-    public String name;
-    public String surname;
-    public int ssn;
+    //Fixed after HW1 feedback
+    private String name;
+    private String surname;
+    private int ssn;
 
     abstract void doWork();
 

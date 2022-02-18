@@ -1,7 +1,7 @@
 package CompanyRoles;
 public class SalesPerson extends Employee {
-
-    public String[] CustomerAccounts;
+    //Fixed after HW1 feedback
+    private String[] CustomerAccounts;
     private int addIndex = 0;
     private int customerCap = 50;
 

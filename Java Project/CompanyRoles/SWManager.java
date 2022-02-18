@@ -1,7 +1,7 @@
 package CompanyRoles;
 public class SWManager extends SWEngineer implements Manager {
-    
-    public Employee[] directReports;
+    //Fixed after HW1 feedback
+    private Employee[] directReports;
     private int teamCap = 10;
     private int addIndex = 0;
 

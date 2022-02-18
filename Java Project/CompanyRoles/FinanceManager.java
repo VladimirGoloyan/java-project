@@ -1,7 +1,7 @@
 package CompanyRoles;
 public class FinanceManager extends Accountant implements Manager{
-
-    Employee[] directReports;
+    //Fixed after HW1 feedback
+    private Employee[] directReports;
     private int teamCap = 10;
     private int addIndex = 0;
 

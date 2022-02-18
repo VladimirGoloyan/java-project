@@ -1,4 +1,4 @@
-interface CollectionADT<T> {
+interface CollectionADT<T> extends Iterable<T>{
     boolean isEmpty();
 
     void empty();

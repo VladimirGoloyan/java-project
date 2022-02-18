@@ -1,7 +1,7 @@
 package CompanyRoles;
 public class SWEngineer extends Employee{
-    
-    public String title;
+    //Fixed after HW1 feedback
+    private String title;
 
     //Complexity O(1) as constructor of parent is also O(1)
     public SWEngineer(String name, String surname, int ssn, String title) {

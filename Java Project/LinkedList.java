@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class LinkedList<T> implements ListADT<T> {
 
     private int size;
@@ -139,4 +141,55 @@ public class LinkedList<T> implements ListADT<T> {
 
         return false;
     }
+
+    public Iterator<T> iterator() {
+        // TODO Auto-generated method stub
+        return new ForwardIterator();
+    }
+
+    public Iterator<T> OddIterator() {
+        // TODO Auto-generated method stub
+        if(size < 2){
+            return null;
+        }
+        return new MyOddIterator();
+    }
+
+    private class ForwardIterator<T> implements Iterator<T> {      
+        private Node<T> temp = first;
+
+        @Override
+        public boolean hasNext() {
+            // TODO Auto-generated method stub
+            return temp != null;
+        }
+
+        @Override
+        public T next() {
+            // TODO Auto-generated method stub
+            T res = temp.value;
+            temp = temp.next;
+            return res;
+        }
+
+    }
+
+    private class MyOddIterator<T> implements Iterator<T> {
+        private Node<T> temp = first.next;
+
+        @Override
+        public boolean hasNext() {
+            // TODO Auto-generated method stub
+            return temp != null;
+        }
+
+        @Override
+        public T next() {
+            // TODO Auto-generated method stub
+            T res = temp.value;
+            temp = temp.next.next;
+            return res;
+        }
+    }
+    
 }

@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class ArrayList<T> implements ListADT<T> {
 
     private int size;
@@ -117,17 +119,68 @@ public class ArrayList<T> implements ListADT<T> {
     public void empty() {
         // TODO Auto-generated method stub
         arr = new Object[10];
-        
+
     }
 
     @Override
     public void print() {
         // TODO Auto-generated method stub
         System.out.println("Starting arrayList print");
-        for(int i = 0; i < size; i++){
-            System.out.println(arr[i] +" is at " + i  +"th index of array");
+        for (int i = 0; i < size; i++) {
+            System.out.println(arr[i] + " is at " + i + "th index of array");
         }
         System.out.println("ArrayList print ended");
+    }
+
+    public class iterator {
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        // TODO Auto-generated method stub
+        return new ForwardIterator();
+    }
+
+    public Iterator<T> OddIterator() {
+        // TODO Auto-generated method stub
+        if(size < 2){
+            return null;
+        }
+        return new MyOddIterator();
+    }
+
+    private class ForwardIterator<T> implements Iterator<T> {
+
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            // TODO Auto-generated method stub
+            return index < size;
+        }
+
+        @Override
+        public T next() {
+            // TODO Auto-generated method stub
+            return (T) arr[index++];
+        }
+
+    }
+
+    private class MyOddIterator<T> implements Iterator<T> {
+        private int index = 1;
+
+        @Override
+        public boolean hasNext() {
+            // TODO Auto-generated method stub
+            return index + 2 < size;
+        }
+
+        @Override
+        public T next() {
+            // TODO Auto-generated method stub
+            return (T) arr[index += 2];
+        }
     }
 
 }
