@@ -1,3 +1,4 @@
+package CompanyRoles;
 public class SWManager extends SWEngineer implements Manager {
     
     public Employee[] directReports;

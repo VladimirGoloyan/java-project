@@ -1,3 +1,10 @@
+import CompanyRoles.Accountant;
+import CompanyRoles.Company;
+import CompanyRoles.Executive;
+import CompanyRoles.FinanceManager;
+import CompanyRoles.SWEngineer;
+import CompanyRoles.SWManager;
+
 public class main {
     public static void main(String[] args) {
 
@@ -42,27 +49,5 @@ public class main {
         comp.printAllEmployeeNames();
     }
 
-    //Not sure if this implementation is correct hope we can discuss it later
-    public Employee[] getTeam(Manager m) {
-        if (m.getDirectReports().length == 0) {
-            System.out.println("This manager does not have any direct reports yet");
-            return null;
-        }
-
-        Employee[] res = new Employee[20];
-
-        getTeamRec(res, m, 0);
-        return res;
-    }
-
-    public void getTeamRec(Employee[] res, Manager m, int i){
-        if(m.getDirectReports().length == i){
-            return;
-        }
-        res[i] = m.getDirectReports()[i];
-        if( res[i] instanceof Manager){
-            getTeamRec(res,res[i],0);
-        }
-        getTeamRec(res,m,i+1);
-    }
+    
 }

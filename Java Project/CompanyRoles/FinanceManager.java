@@ -1,3 +1,4 @@
+package CompanyRoles;
 public class FinanceManager extends Accountant implements Manager{
 
     Employee[] directReports;

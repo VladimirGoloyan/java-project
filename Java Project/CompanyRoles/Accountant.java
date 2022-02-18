@@ -1,3 +1,4 @@
+package CompanyRoles;
 public class Accountant extends Employee{
 
     //Complexity O(1) as constructor of parent is also O(1)

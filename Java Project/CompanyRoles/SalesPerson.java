@@ -1,3 +1,4 @@
+package CompanyRoles;
 public class SalesPerson extends Employee {
 
     public String[] CustomerAccounts;

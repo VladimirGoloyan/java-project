@@ -1,3 +1,4 @@
+package CompanyRoles;
 public class Company {
     public String name;
     public int employeeCapacity;
