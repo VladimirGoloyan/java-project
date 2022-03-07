@@ -142,6 +142,8 @@ public class LinkedList<T> implements ListADT<T> {
         return false;
     }
 
+
+
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub
         return new ForwardIterator();
@@ -156,7 +158,9 @@ public class LinkedList<T> implements ListADT<T> {
     }
 
     private class ForwardIterator<T> implements Iterator<T> {      
-        private Node<T> temp = first;
+        private LinkedList<T>.Node<T> temp = (LinkedList<T>.Node<T>) first;
+        private LinkedList<T>.Node<T> currentIterated = null;
+        private boolean nextCalled = false;
 
         @Override
         public boolean hasNext() {
@@ -167,15 +171,37 @@ public class LinkedList<T> implements ListADT<T> {
         @Override
         public T next() {
             // TODO Auto-generated method stub
+            if(!hasNext()){
+                return null;
+            }
             T res = temp.value;
+            currentIterated = temp;
             temp = temp.next;
+            nextCalled = true;
             return res;
+        }
+
+        public void remove(){
+            if(nextCalled){
+                removePrevious(temp);
+                nextCalled = false;
+            }
+        }
+
+        private boolean removePrevious(LinkedList<T>.Node<T> node){
+            LinkedList.Node temp = first;
+            while(temp.next != currentIterated){
+                temp = temp.next;
+            }
+
+            temp.next = temp.next.next;
+            return true;
         }
 
     }
 
     private class MyOddIterator<T> implements Iterator<T> {
-        private Node<T> temp = first.next;
+        private LinkedList<T>.Node<T> temp = (LinkedList<T>.Node<T>) first.next;
 
         @Override
         public boolean hasNext() {

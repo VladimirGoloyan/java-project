@@ -35,6 +35,10 @@ public class ArrayList<T> implements ListADT<T> {
         arr = temp;
     }
 
+    public int size() {
+        return size;
+    }
+
     public void addLast(T el) {
         ensureCapacity();
         arr[size] = el;
@@ -132,7 +136,38 @@ public class ArrayList<T> implements ListADT<T> {
         System.out.println("ArrayList print ended");
     }
 
-    public class iterator {
+    public boolean swap(T v1, T v2) {
+        int i1 = findIndex(v1);
+        int i2 = findIndex(v2);
+
+        if (i1 == -1 || i2 == -1) {
+            return false;
+        }
+
+        if (arr[i1] == arr[i2]) {
+            return true;
+        }
+
+        T temp = (T) arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+
+        return true;
+    }
+
+    public int findIndex(T value) {
+        for (int i = 0; i < size; i++) {
+            if (arr[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public T getElement(int index) {
+        if (index > -1 && index < size)
+            return (T) arr[index];
+        return null;
     }
 
     @Override
@@ -143,7 +178,7 @@ public class ArrayList<T> implements ListADT<T> {
 
     public Iterator<T> OddIterator() {
         // TODO Auto-generated method stub
-        if(size < 2){
+        if (size < 2) {
             return null;
         }
         return new MyOddIterator();
@@ -163,6 +198,10 @@ public class ArrayList<T> implements ListADT<T> {
         public T next() {
             // TODO Auto-generated method stub
             return (T) arr[index++];
+        }
+
+        public void remove() {
+            //remove index-1;
         }
 
     }

@@ -29,6 +29,10 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         first = last = null;
     }
 
+    public int size() {
+        return size;
+    }
+
     @Override
     public boolean isEmpty() {
         // TODO Auto-generated method stub
@@ -39,6 +43,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     public void empty() {
         // TODO Auto-generated method stub
         first = last = null;
+        size = 0;
     }
 
     @Override
@@ -135,22 +140,81 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         return false;
     }
 
+    public boolean swap(T v1, T v2) {
+        Node n1 = findNode(v1);
+        Node n2 = findNode(v2);
 
-     public Iterator<T> iterator() {
+        if (n1 == null || n2 == null) {
+            return false;
+        }
+
+        if (n1.value == n2.value) {
+            return true;
+        }
+
+        Node temp;
+
+        temp = n1.next;
+        n1.next = n2.next;
+        n2.next = temp;
+
+        if (n1.next != null)
+            n1.next.prev = n1;
+        if (n2.next != null)
+            n2.next.prev = n2;
+
+        temp = n1.prev;
+        n1.prev = n2.prev;
+        n2.prev = temp;
+
+        if (n1.prev != null)
+            n1.prev.next = n1;
+        if (n2.prev != null)
+            n2.prev.next = n2;
+
+        return true;
+    }
+
+    public Node findNode(T value) {
+        Node temp = first;
+
+        while (temp != null) {
+            if (temp.value == value) {
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public T getElement(int index) {
+        if (index > -1 && index < size) {
+            Node temp = first;
+
+            while (index < size) {
+                temp = temp.next;
+            }
+
+            return (T) temp.value;
+        }
+        return null;
+    }
+
+
+    public Iterator<T> iterator() {
         // TODO Auto-generated method stub
         return new ForwardIterator();
     }
 
     public Iterator<T> OddIterator() {
         // TODO Auto-generated method stub
-        if(size < 2){
+        if (size < 2) {
             return null;
         }
         return new MyOddIterator();
     }
 
-    private class ForwardIterator<T> implements Iterator<T> {      
-        private Node<T> temp = first;
+    private class ForwardIterator<T> implements Iterator<T> {
+        private DoubleLinkedList<T>.Node<T> temp = (DoubleLinkedList<T>.Node<T>) first;
 
         @Override
         public boolean hasNext() {
@@ -169,7 +233,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
     }
 
     private class MyOddIterator<T> implements Iterator<T> {
-        private Node<T> temp = first.next;
+        private DoubleLinkedList<T>.Node<T> temp = (DoubleLinkedList<T>.Node<T>) first.next;
 
         @Override
         public boolean hasNext() {
