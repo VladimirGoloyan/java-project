@@ -1,4 +1,3 @@
-package CompanyRoles;
 public class FinanceManager extends Accountant implements Manager{
     //Fixed after HW1 feedback
     private Employee[] directReports;

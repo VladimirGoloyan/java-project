@@ -62,6 +62,7 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         // TODO Auto-generated method stub
         if (size == 0) {
             first = last = new Node(e, null, null);
+            size++;
             return;
         }
 
@@ -198,7 +199,6 @@ public class DoubleLinkedList<T> implements ListADT<T> {
         }
         return null;
     }
-
 
     public Iterator<T> iterator() {
         // TODO Auto-generated method stub

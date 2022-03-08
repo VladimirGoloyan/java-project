@@ -3,5 +3,7 @@ interface CollectionADT<T> extends Iterable<T>{
 
     void empty();
 
+    int size();
+
     void print();
 }

@@ -217,5 +217,11 @@ public class LinkedList<T> implements ListADT<T> {
             return res;
         }
     }
+
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        return size;
+    }
     
 }

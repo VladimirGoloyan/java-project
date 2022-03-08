@@ -85,4 +85,10 @@ public class DLLDeque<T> implements DequeADT<T> {
             return (T) list.getElement(cursor++);
         }
     }
+
+    @Override
+    public int size() {
+        // TODO Auto-generated method stub
+        return list.size();
+    }
 }

@@ -1,4 +1,3 @@
-package CompanyRoles;
 public class SWManager extends SWEngineer implements Manager {
     //Fixed after HW1 feedback
     private Employee[] directReports;

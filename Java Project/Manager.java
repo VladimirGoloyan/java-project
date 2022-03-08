@@ -1,4 +1,5 @@
-package CompanyRoles;
+
+
 public interface Manager {
     public void evaluateEmployee(Employee e);
 

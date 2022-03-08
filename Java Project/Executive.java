@@ -1,4 +1,3 @@
-package CompanyRoles;
 public class Executive extends Employee implements Manager {
     //Fixed after HW1 feedback
     private Manager[] directReports;

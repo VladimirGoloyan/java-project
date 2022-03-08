@@ -1,4 +1,5 @@
-package CompanyRoles;
+
+
 public class SalesPerson extends Employee {
     //Fixed after HW1 feedback
     private String[] CustomerAccounts;

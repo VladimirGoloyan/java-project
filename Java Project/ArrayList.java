@@ -76,11 +76,7 @@ public class ArrayList<T> implements ListADT<T> {
             return false;
         }
 
-        for (int i = size - 1; i > 0; i--) {
-            arr[i - 1] = arr[i];
-        }
-
-        arr[size - 1] = null;
+        arr[size-1] = null;
         size--;
         return true;
     }

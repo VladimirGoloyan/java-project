@@ -4,12 +4,24 @@ public class ArrayDeque<T> implements DequeADT<T> {
     private ArrayList<T> arr;
 
     public ArrayDeque() {
-        arr = new ArrayList<T>();
+        arr = new ArrayList<T>(10);
+    }
+
+    public ArrayDeque(int cap) {
+        if (cap > 10)
+            arr = new ArrayList<T>(cap);
+        else
+            arr = new ArrayList<T>(10);
+
     }
 
     @Override
     public boolean isEmpty() {
         return arr.isEmpty();
+    }
+
+    public int size() {
+        return arr.size();
     }
 
     @Override
@@ -58,7 +70,7 @@ public class ArrayDeque<T> implements DequeADT<T> {
 
     @Override
     public boolean swap(T v1, T v2) {
-        return arr.swap(v1,v2);
+        return arr.swap(v1, v2);
     }
 
     @Override
